@@ -1,0 +1,9 @@
+- [x] Implement refactored `EArmUsbClient.kt` to avoid compiler ICE
+    - [x] Replace `runCatching` with `try-catch`
+    - [x] Replace `error()` with `throw IllegalStateException()`
+    - [x] Add explicit return types
+    - [x] Restore `request` function
+- [x] Upgrade Kotlin to 2.1.0 to resolve persistent K2 compiler ICE
+- [x] Refactor `EArmViewModel.kt` to be more explicit and avoid compact one-liners
+- [x] Verify build with `./gradlew :app:compileDebugKotlin`
+- [x] Create walkthrough artifact

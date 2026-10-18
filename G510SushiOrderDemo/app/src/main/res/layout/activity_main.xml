@@ -1,0 +1,14 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:background="#F7F4EF" android:padding="20dp" android:layout_width="match_parent" android:layout_height="match_parent">
+ <FrameLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent">
+  <TextureView android:id="@+id/camera" android:layout_width="match_parent" android:layout_height="match_parent"/>
+  <TextView android:id="@+id/detectBadge" android:text="カメラ待機中" android:textColor="#FFFFFF" android:textSize="18sp" android:background="#AA17232A" android:padding="12dp" android:layout_gravity="top|left" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+ </FrameLayout>
+ <LinearLayout android:orientation="vertical" android:padding="24dp" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent">
+  <TextView android:text="G510 寿司AIオーダー" android:textStyle="bold" android:textSize="24sp" android:textColor="#D84A2B" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+  <TextView android:id="@+id/prompt" android:text="着席を待っています" android:textStyle="bold" android:textSize="28sp" android:textColor="#1E2A32" android:gravity="center" android:layout_weight="1" android:layout_width="match_parent" android:layout_height="0dp"/>
+  <TextView android:id="@+id/result" android:text="認識結果: -" android:textSize="18sp" android:textColor="#5C696F" android:padding="8dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+  <Button android:id="@+id/seat" android:text="着席を検知（デモ）" android:textSize="20sp" android:layout_width="match_parent" android:layout_height="64dp"/>
+  <Button android:id="@+id/speak" android:text="音声で回答" android:textSize="20sp" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="64dp"/>
+  <Button android:id="@+id/reset" android:text="リセット" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="52dp"/>
+ </LinearLayout>
+</LinearLayout>

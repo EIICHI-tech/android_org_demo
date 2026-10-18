@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.G510VoiceOrder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#006C4C</item>
+        <item name="colorPrimaryVariant">#00513A</item>
+        <item name="colorSecondary">#FFB000</item>
+        <item name="android:fontFamily">sans</item>
+    </style>
+</resources>

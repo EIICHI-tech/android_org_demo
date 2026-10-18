@@ -1,0 +1,3 @@
+- [x] Downgrade dependencies in `app/build.gradle.kts`
+- [/] Fix JVM target inconsistency in `app/build.gradle.kts`
+- [ ] Verify build with `assembleDebug`

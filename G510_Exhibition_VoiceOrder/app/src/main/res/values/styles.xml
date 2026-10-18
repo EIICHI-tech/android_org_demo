@@ -1,0 +1,7 @@
+<resources>
+<style name="Theme.G510Exhibition" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <item name="colorPrimary">#006C4C</item><item name="colorPrimaryVariant">#004D36</item>
+    <item name="colorSecondary">#FFB000</item><item name="android:fontFamily">sans</item>
+    <item name="android:windowLightStatusBar">false</item><item name="android:statusBarColor">#004D36</item>
+</style>
+</resources>

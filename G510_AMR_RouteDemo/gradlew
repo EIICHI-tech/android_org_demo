@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+set -e
+BASE="$HOME/.gradle/g510-amr-wrapper"; ZIP="$BASE/gradle-8.9-bin.zip"; GHOME="$BASE/gradle-8.9"
+if [ ! -x "$GHOME/bin/gradle" ]; then
+ mkdir -p "$BASE"
+ if command -v curl >/dev/null 2>&1; then curl -L https://services.gradle.org/distributions/gradle-8.9-bin.zip -o "$ZIP"; else wget -O "$ZIP" https://services.gradle.org/distributions/gradle-8.9-bin.zip; fi
+ unzip -o "$ZIP" -d "$BASE" >/dev/null
+fi
+exec "$GHOME/bin/gradle" "$@"

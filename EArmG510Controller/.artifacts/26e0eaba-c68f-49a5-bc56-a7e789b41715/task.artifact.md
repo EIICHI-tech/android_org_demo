@@ -1,0 +1,3 @@
+- `[x]` Update `app/build.gradle.kts` with JVM 21 targets
+- `[x]` Run Gradle sync and build to verify
+- `[x]` Create walkthrough

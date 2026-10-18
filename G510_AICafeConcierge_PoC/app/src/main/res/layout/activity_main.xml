@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="#F5EFE7" android:layout_width="match_parent" android:layout_height="match_parent">
+ <LinearLayout android:background="#241B16" android:gravity="center_vertical" android:paddingLeft="18dp" android:paddingRight="12dp" android:layout_width="match_parent" android:layout_height="62dp">
+  <TextView android:text="G510 AI Cafe Concierge" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="23sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+  <TextView android:id="@+id/mode" android:text="OFFLINE DEMO" android:textColor="#241B16" android:textStyle="bold" android:background="#E9C68E" android:padding="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+ </LinearLayout>
+ <LinearLayout android:orientation="horizontal" android:padding="8dp" android:layout_width="match_parent" android:layout_height="match_parent">
+  <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_weight="1.15" android:layout_height="match_parent">
+   <ImageView android:id="@+id/avatar" android:src="@drawable/cafe_avatar" android:scaleType="centerCrop" android:background="#2A201A" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
+   <TextView android:id="@+id/avatarState" android:text="AI店員：お客様をお待ちしています" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="15sp" android:gravity="center" android:background="#5C3B2E" android:layout_width="match_parent" android:layout_height="46dp"/>
+  </LinearLayout>
+  <LinearLayout android:orientation="vertical" android:layout_marginLeft="8dp" android:layout_width="0dp" android:layout_weight="1.25" android:layout_height="match_parent">
+   <TextView android:text="AI店員との会話" android:textSize="19sp" android:textStyle="bold" android:textColor="#241B16" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+   <ScrollView android:background="#FFFCF8" android:padding="10dp" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"><TextView android:id="@+id/chat" android:text="AI店員：いらっしゃいませ。AIカフェへようこそ。ご注文はお決まりですか？" android:textSize="15sp" android:lineSpacingExtra="7dp" android:textColor="#242424" android:layout_width="match_parent" android:layout_height="wrap_content"/></ScrollView>
+   <LinearLayout android:orientation="horizontal" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="56dp"><EditText android:id="@+id/input" android:hint="おすすめは？ と入力" android:textSize="15sp" android:singleLine="true" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"/><Button android:id="@+id/send" android:text="送信" android:layout_width="86dp" android:layout_height="match_parent"/></LinearLayout>
+   <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="52dp"><Button android:id="@+id/recommend" android:text="おすすめ" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"/><Button android:id="@+id/nonsweet" android:text="甘くない飲み物" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"/><Button android:id="@+id/help" android:text="注文方法" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"/></LinearLayout>
+  </LinearLayout>
+  <LinearLayout android:orientation="vertical" android:layout_marginLeft="8dp" android:layout_width="0dp" android:layout_weight="2.1" android:layout_height="match_parent">
+   <LinearLayout android:id="@+id/tabs" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="52dp"/>
+   <GridLayout android:id="@+id/menuGrid" android:columnCount="3" android:rowCount="2" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
+  </LinearLayout>
+  <LinearLayout android:orientation="vertical" android:background="#FFFCF8" android:padding="11dp" android:layout_marginLeft="8dp" android:layout_width="0dp" android:layout_weight="1.05" android:layout_height="match_parent">
+   <TextView android:text="ご注文内容" android:textSize="19sp" android:textStyle="bold" android:textColor="#241B16" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+   <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"><TextView android:id="@+id/cart" android:text="商品はありません" android:textSize="14sp" android:lineSpacingExtra="5dp" android:paddingTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/></ScrollView>
+   <TextView android:id="@+id/total" android:text="合計 0円" android:textColor="#C95F48" android:textStyle="bold" android:textSize="23sp" android:gravity="right" android:padding="7dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+   <Button android:id="@+id/order" android:text="注文を確定" android:textSize="18sp" android:layout_width="match_parent" android:layout_height="58dp"/><Button android:id="@+id/clear" android:text="カートを空にする" android:layout_marginTop="5dp" android:layout_width="match_parent" android:layout_height="46dp"/>
+  </LinearLayout>
+ </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="#F7F4EF" android:layout_width="match_parent" android:layout_height="match_parent">
+ <TextView android:text="G510 回転寿司 AIオーダー" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="25sp" android:gravity="center_vertical" android:paddingLeft="24dp" android:background="#071A33" android:layout_width="match_parent" android:layout_height="70dp"/>
+ <LinearLayout android:orientation="horizontal" android:padding="14dp" android:layout_width="match_parent" android:layout_height="match_parent">
+  <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_weight="3" android:layout_height="match_parent">
+   <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="64dp">
+    <Button android:id="@+id/tabDrink" android:text="ドリンク" android:textSize="19sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+    <Button android:id="@+id/tabSushi" android:text="寿司" android:textSize="19sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+    <Button android:id="@+id/tabOption" android:text="オプションメニュー" android:textSize="19sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent"/>
+   </LinearLayout>
+   <GridLayout android:id="@+id/menuGrid" android:columnCount="3" android:padding="8dp" android:layout_width="match_parent" android:layout_height="match_parent"/>
+  </LinearLayout>
+  <LinearLayout android:orientation="vertical" android:background="#071A33" android:padding="18dp" android:layout_marginLeft="14dp" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent">
+   <TextView android:text="ご注文内容" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="22sp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+   <TextView android:id="@+id/cart" android:text="まだ商品はありません" android:textColor="#FFFFFF" android:textSize="17sp" android:paddingTop="18dp" android:layout_weight="1" android:layout_width="match_parent" android:layout_height="0dp"/>
+   <TextView android:id="@+id/total" android:text="合計 0円" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="24sp" android:gravity="right" android:padding="8dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+   <Button android:id="@+id/order" android:text="注文を確定する" android:textSize="19sp" android:layout_width="match_parent" android:layout_height="64dp"/>
+   <Button android:id="@+id/clear" android:text="カートを空にする" android:layout_marginTop="8dp" android:layout_width="match_parent" android:layout_height="52dp"/>
+  </LinearLayout>
+ </LinearLayout>
+</LinearLayout>

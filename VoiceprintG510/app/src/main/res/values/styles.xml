@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.Voiceprint" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#1B5EDE</item>
+        <item name="android:navigationBarColor">#07152E</item>
+        <item name="android:statusBarColor">#07152E</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

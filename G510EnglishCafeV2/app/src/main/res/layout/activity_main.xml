@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal" android:padding="18dp" android:background="#F6FBFF">
+
+    <LinearLayout android:layout_width="280dp" android:layout_height="match_parent"
+        android:orientation="vertical" android:gravity="center_horizontal"
+        android:background="@drawable/panel_navy" android:padding="22dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="AI ENGLISH CAFE" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold"/>
+        <TextView android:layout_width="150dp" android:layout_height="150dp" android:layout_marginTop="28dp"
+            android:gravity="center" android:background="@drawable/panel_teal" android:text="AI"
+            android:textColor="@color/navy" android:textSize="60sp" android:textStyle="bold"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp"
+            android:text="Emma" android:textColor="@color/white" android:textSize="28sp" android:textStyle="bold"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Your English Coach" android:textColor="#B9D8EC" android:textSize="15sp"/>
+        <Space android:layout_width="1dp" android:layout_height="0dp" android:layout_weight="1"/>
+        <TextView android:id="@+id/ttsStatus" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="TTS: Initializing" android:textColor="@color/white" android:textStyle="bold"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="G510 / Google TTS" android:textColor="#B9D8EC" android:textSize="12sp"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+        android:layout_marginStart="18dp" android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/lessonCafe" style="@style/LessonButton" android:text="Cafe Order"/>
+            <Button android:id="@+id/lessonIntro" style="@style/LessonButton" android:text="Self Introduction"/>
+            <Button android:id="@+id/lessonTravel" style="@style/LessonButton" android:text="Travel"/>
+            <Button android:id="@+id/lessonBusiness" style="@style/LessonButton" android:text="Business"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp"
+            android:orientation="vertical" android:background="@drawable/panel_white">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TEACHER"
+                android:textColor="@color/teal" android:textStyle="bold"/>
+            <TextView android:id="@+id/questionText" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="28sp" android:textColor="@color/navy" android:textStyle="bold"/>
+            <TextView android:id="@+id/japaneseText" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" android:textSize="16sp" android:textColor="@color/gray"/>
+            <Button android:id="@+id/playQuestionButton" android:layout_width="wrap_content" android:layout_height="48dp"
+                android:layout_marginTop="8dp" android:text="▶ 質問を聞く" android:textAllCaps="false"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+            android:layout_marginTop="12dp" android:orientation="vertical" android:gravity="center"
+            android:background="@drawable/panel_teal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="YOUR ANSWER"
+                android:textColor="#117C78" android:textStyle="bold"/>
+            <TextView android:id="@+id/recognizedText" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:gravity="center" android:minLines="2" android:text="マイクを押して英語で話してください"
+                android:textColor="@color/navy" android:textSize="23sp"/>
+            <Button android:id="@+id/micButton" android:layout_width="190dp" android:layout_height="58dp"
+                android:layout_marginTop="8dp" android:text="🎤 話す" android:textSize="20sp" android:textAllCaps="false"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="150dp" android:layout_marginTop="12dp" android:orientation="horizontal">
+            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                android:orientation="vertical" android:background="@drawable/panel_white">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="お手本" android:textColor="@color/orange" android:textStyle="bold"/>
+                <TextView android:id="@+id/targetText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="19sp" android:textStyle="bold"/>
+                <TextView android:id="@+id/hintText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/gray"/>
+                <Button android:id="@+id/playTargetButton" android:layout_width="wrap_content" android:layout_height="44dp" android:text="▶ お手本を聞く" android:textAllCaps="false"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="210dp" android:layout_height="match_parent" android:layout_marginStart="12dp"
+                android:orientation="vertical" android:gravity="center" android:background="@drawable/panel_white">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SCORE" android:textColor="@color/orange" android:textStyle="bold"/>
+                <TextView android:id="@+id/scoreText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@color/navy" android:textSize="48sp" android:textStyle="bold"/>
+                <TextView android:id="@+id/feedbackText" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:text="英語で答えてください。" android:textSize="13sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

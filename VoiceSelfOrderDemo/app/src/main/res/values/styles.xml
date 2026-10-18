@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.VoiceSelfOrder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#E53935</item>
+        <item name="colorPrimaryVariant">#B71C1C</item>
+        <item name="colorSecondary">#FFB300</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <color name="taxi_yellow">#FFD21F</color>
+    <color name="taxi_black">#111318</color>
+    <color name="taxi_white">#FFFDF7</color>
+</resources>
