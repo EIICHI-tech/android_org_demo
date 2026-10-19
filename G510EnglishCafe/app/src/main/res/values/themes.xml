@@ -1,8 +1,0 @@
-<resources>
-    <style name="Theme.G510EnglishCafe" parent="android:style/Theme.Material.Light.NoActionBar">
-        <item name="android:fontFamily">sans</item>
-        <item name="android:colorAccent">#FF7A45</item>
-        <item name="android:navigationBarColor">#17324D</item>
-        <item name="android:statusBarColor">#17324D</item>
-    </style>
-</resources>
