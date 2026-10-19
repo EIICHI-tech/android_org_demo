@@ -1,1 +1,0 @@
-<resources><style name="Theme.EArm" parent="android:style/Theme.Material.Light.NoActionBar"><item name="android:fontFamily">sans</item><item name="android:windowFullscreen">true</item></style></resources>
