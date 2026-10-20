@@ -1,0 +1,2 @@
+WIFI_SSID = "Tukimi"
+WIFI_PASSWORD = "CHANGE_ME"

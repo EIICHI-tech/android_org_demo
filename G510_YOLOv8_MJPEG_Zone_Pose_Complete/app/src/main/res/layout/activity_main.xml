@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="#0F172A"
+    android:padding="8dp">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.7">
+
+        <ImageView
+            android:id="@+id/cameraImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:scaleType="fitCenter" />
+
+        <com.example.g510yolo.ZoneDetectionOverlay
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/detectionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:background="#99000000"
+            android:padding="8dp"
+            android:text="YOLO待機"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <Space
+        android:layout_width="8dp"
+        android:layout_height="1dp" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="YOLOエリア判定 / Pose調整"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/stateText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#DCFCE7"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="IDLE"
+                android:textColor="#166534" />
+
+            <TextView
+                android:id="@+id/poseText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="A=90 B=120 C=90 D=35"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3">
+
+                <Button android:id="@+id/aMinus" android:text="A -5" />
+                <TextView android:text="BASE" android:gravity="center" />
+                <Button android:id="@+id/aPlus" android:text="A +5" />
+
+                <Button android:id="@+id/bMinus" android:text="B -5" />
+                <TextView android:text="REAR" android:gravity="center" />
+                <Button android:id="@+id/bPlus" android:text="B +5" />
+
+                <Button android:id="@+id/cMinus" android:text="C -5" />
+                <TextView android:text="FRONT" android:gravity="center" />
+                <Button android:id="@+id/cPlus" android:text="C +5" />
+
+                <Button android:id="@+id/dMinus" android:text="D -5" />
+                <TextView android:text="GRIP" android:gravity="center" />
+                <Button android:id="@+id/dPlus" android:text="D +5" />
+            </GridLayout>
+
+            <Button
+                android:id="@+id/executePose"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="#2563EB"
+                android:text="現在Poseを実行"
+                android:textColor="#FFFFFF" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2">
+
+                <Button android:id="@+id/poseHome" android:text="HOME" />
+                <Button android:id="@+id/poseSearch" android:text="SEARCH" />
+                <Button android:id="@+id/posePick" android:text="PICK" />
+                <Button android:id="@+id/poseGrip" android:text="GRIP" />
+                <Button android:id="@+id/poseLift" android:text="LIFT" />
+                <Button android:id="@+id/poseDropAbove" android:text="DROP ABOVE" />
+                <Button android:id="@+id/poseDropDown" android:text="DROP DOWN" />
+                <Button android:id="@+id/poseRelease" android:text="RELEASE" />
+            </GridLayout>
+
+            <Button
+                android:id="@+id/saveCurrent"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="現在値を選択中Poseへ保存" />
+
+            <Button
+                android:id="@+id/testCameraButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="カメラ・エリア表示テスト" />
+
+            <Button
+                android:id="@+id/testRobotButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="eArm接続テスト" />
+
+            <Button
+                android:id="@+id/startButton"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:backgroundTint="#16A34A"
+                android:text="自動把持 START"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/emergencyButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:backgroundTint="#B91C1C"
+                android:text="緊急停止"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/settingsButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="接続設定" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
