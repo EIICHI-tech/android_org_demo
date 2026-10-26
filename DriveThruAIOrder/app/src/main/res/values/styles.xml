@@ -1,0 +1,1 @@
+<resources><style name="Theme.DriveThru" parent="android:style/Theme.Material.Light.NoActionBar"><item name="android:fontFamily">sans</item><item name="android:colorAccent">#F9C80E</item><item name="android:windowLightStatusBar">false</item><item name="android:statusBarColor">#A80D22</item></style></resources>

@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+ <permission android:name="jp.g510.zramcompare.BASELINE" android:protectionLevel="signature"/>
+ <uses-permission android:name="jp.g510.zramcompare.BASELINE"/>
+ <application android:allowBackup="false" android:largeHeap="true" android:theme="@style/AppTheme" android:label="@string/app_name">
+  <activity android:name=".MainActivity" android:exported="true" android:screenOrientation="landscape"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+  <service android:name=".Stress1" android:process=":s1" android:exported="false"/><service android:name=".Stress2" android:process=":s2" android:exported="false"/><service android:name=".Stress3" android:process=":s3" android:exported="false"/><service android:name=".Stress4" android:process=":s4" android:exported="false"/>
+ </application>
+</manifest>

@@ -1,0 +1,40 @@
+package jp.g510.zramcompare
+import android.app.*
+import android.content.*
+import android.os.*
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.*
+import androidx.compose.ui.graphics.*
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.*
+import kotlinx.coroutines.delay
+
+private val Bg=Color(0xFF06111F);private val Card=Color(0xFF10243A);private val Green=Color(0xFF18D7C2);private val Blue=Color(0xFF45A6FF);private val Amber=Color(0xFFFFC857);private val Red=Color(0xFFFF667A);private val Muted=Color(0xFF9BB0C8)
+data class Mem(val total:Long=0,val avail:Long=0,val threshold:Long=0,val low:Boolean=false){val used get()=total-avail;val pct get()=if(total>0)used.toFloat()/total else 0f}
+data class Base(val avail:Long,val used:Long,val workers:Int)
+class MainActivity:ComponentActivity(){val ws=mutableListOf<Messenger>();val cs=mutableListOf<ServiceConnection>();override fun onCreate(b:Bundle?){super.onCreate(b);bind();setContent{MaterialTheme(colorScheme=darkColorScheme(background=Bg,surface=Card,primary=Green)){Screen(this)}}}
+ private fun bind(){listOf(Stress1::class.java,Stress2::class.java,Stress3::class.java,Stress4::class.java).forEach{c->val s=object:ServiceConnection{override fun onServiceConnected(n:ComponentName,b:IBinder){ws.add(Messenger(b))};override fun onServiceDisconnected(n:ComponentName){}};cs.add(s);bindService(Intent(this,c),s,BIND_AUTO_CREATE)}}
+ fun start(mib:Int,p:Int){if(ws.isEmpty())return;val each=mib/ws.size;ws.forEachIndexed{i,w->w.send(Message.obtain(null,1,each+if(i<mib%ws.size)1 else 0,p))}}
+ fun stop(){ws.forEach{runCatching{it.send(Message.obtain(null,2))}}}
+ override fun onDestroy(){stop();cs.forEach{runCatching{unbindService(it)}};super.onDestroy()}}
+fun snap(c:Context):Mem{val a=c.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager;val i=ActivityManager.MemoryInfo();a.getMemoryInfo(i);return Mem(i.totalMem/1048576,i.availMem/1048576,i.threshold/1048576,i.lowMemory)}
+@Composable fun MainActivity.Screen(c:Context){var m by remember{mutableStateOf(snap(c))};var target by remember{mutableFloatStateOf(1024f)};var pat by remember{mutableIntStateOf(1)};val sp=remember{c.getSharedPreferences("off",0)};var base by remember{mutableStateOf(load(c,sp))};LaunchedEffect(Unit){while(true){m=snap(c);delay(750)}}
+ Surface(Modifier.fillMaxSize(),color=Bg){Column(Modifier.padding(16.dp)){Row(verticalAlignment=Alignment.CenterVertically){Column(Modifier.weight(1f)){Text("G510 ${if(BuildConfig.IS_BASELINE) "ModeA / zRAM OFF" else "ModeD / zRAM ON"}",fontSize=25.sp,fontWeight=FontWeight.Black);Text("同一負荷で残RAM・Worker生存・危険度を比較",color=Muted)};Badge(if(m.low)"CRITICAL" else if(m.avail<m.total*.25)"WARNING" else "SAFE",if(m.low)Red else if(m.avail<m.total*.25)Amber else Green)};Spacer(Modifier.height(12.dp));Row(Modifier.weight(1f),horizontalArrangement=Arrangement.spacedBy(12.dp)){Column(Modifier.weight(1.4f),verticalArrangement=Arrangement.spacedBy(12.dp)){Compare(base,m,Modifier.weight(1.25f));Row(Modifier.weight(1f),horizontalArrangement=Arrangement.spacedBy(10.dp)){Gauge("RAM使用率",m.pct,"${(m.pct*100).toInt()}%",Blue,Modifier.weight(1f));Metric("現在の残RAM",m.avail,"MiB",Green,Modifier.weight(1f));Metric("LMKDしきい値",m.threshold,"MiB",Amber,Modifier.weight(1f))}};Controls(target,{target=it},pat,{pat=it},ws.size,{start(target.toInt(),pat)},{stop()},{sp.edit().putLong("a",m.avail).putLong("u",m.used).putInt("w",ws.size).apply();base=load(c,sp)},{sp.edit().clear().apply();base=null},Modifier.weight(.8f))}}}}
+fun load(c:Context,s:android.content.SharedPreferences):Base?{
+ if(BuildConfig.IS_BASELINE)return if(s.contains("a"))Base(s.getLong("a",0),s.getLong("u",0),s.getInt("w",0))else null
+ return try{c.contentResolver.query(android.net.Uri.parse("content://jp.g510.zramcompare.modea.baseline/result"),null,null,null,null)?.use{if(it.moveToFirst())Base(it.getLong(0),it.getLong(1),it.getInt(2))else null}}catch(_:Exception){null}
+}
+@Composable fun Compare(b:Base?,m:Mem,mod:Modifier){Card(mod.fillMaxWidth(),shape=RoundedCornerShape(20.dp),colors=CardDefaults.cardColors(containerColor=Card)){Column(Modifier.padding(16.dp).fillMaxSize()){Text("zRAM OFF と zRAM ON",fontSize=19.sp,fontWeight=FontWeight.Black);Spacer(Modifier.height(8.dp));if(b==null){Text("① zRAM OFFで同じ負荷を実行\n②『OFF結果を保存』\n③ zRAM ONで同じ負荷を実行",color=Amber)}else{val gain=m.avail-b.avail;Row(Modifier.weight(1f),horizontalArrangement=Arrangement.spacedBy(10.dp)){Mode("zRAM OFF",b.avail,b.used,Amber,Modifier.weight(1f));Mode("zRAM ON（現在）",m.avail,m.used,Green,Modifier.weight(1f));Card(Modifier.weight(1f).fillMaxHeight(),colors=CardDefaults.cardColors(containerColor=if(gain>=0)Green.copy(.15f) else Red.copy(.15f))){Column(Modifier.fillMaxSize(),horizontalAlignment=Alignment.CenterHorizontally,verticalArrangement=Arrangement.Center){Text("MEMORY HEADROOM",color=Muted,fontSize=11.sp);Text("${if(gain>=0)"+" else ""}$gain",fontSize=38.sp,fontWeight=FontWeight.Black,color=if(gain>=0)Green else Red);Text("MiB",color=Muted);Text(if(gain>0)"zRAM ONが有利" else if(gain<0)"zRAM OFFが有利" else "差なし",fontWeight=FontWeight.Bold)}}};Spacer(Modifier.height(8.dp));Text("比較条件: 同じ目標MiB・同じデータ特性・同じ待機時間",color=Muted,fontSize=10.sp)}}}}
+@Composable fun Mode(t:String,a:Long,u:Long,c:Color,mod:Modifier){Card(mod.fillMaxHeight(),colors=CardDefaults.cardColors(containerColor=Color(0xFF172F49))){Column(Modifier.padding(12.dp)){Text(t,color=c,fontWeight=FontWeight.Black);Text("残RAM",color=Muted,fontSize=11.sp);Text("$a MiB",fontSize=25.sp,fontWeight=FontWeight.Black);Text("使用 $u MiB",color=Muted)}}}
+@Composable fun Controls(v:Float,set:(Float)->Unit,p:Int,setp:(Int)->Unit,w:Int,go:()->Unit,stop:()->Unit,save:()->Unit,clear:()->Unit,mod:Modifier){Card(mod.fillMaxHeight(),shape=RoundedCornerShape(20.dp),colors=CardDefaults.cardColors(containerColor=Card)){Column(Modifier.padding(16.dp),verticalArrangement=Arrangement.spacedBy(8.dp)){Text("比較テスト",fontSize=20.sp,fontWeight=FontWeight.Black);Text("目標 ${v.toInt()} MiB / Worker $w/4",color=Muted);Slider(v,set,valueRange=256f..3072f,steps=10);Row{FilterChip(p==0,{setp(0)},{Text("圧縮容易",fontSize=10.sp)});Spacer(Modifier.width(5.dp));FilterChip(p==1,{setp(1)},{Text("混合",fontSize=10.sp)});Spacer(Modifier.width(5.dp));FilterChip(p==2,{setp(2)},{Text("ランダム",fontSize=10.sp)})};Button(go,Modifier.fillMaxWidth()){Text("ストレス開始")};OutlinedButton(stop,Modifier.fillMaxWidth()){Text("停止・解放")};HorizontalDivider();Button(save,Modifier.fillMaxWidth(),colors=ButtonDefaults.buttonColors(containerColor=Amber)){Text("zRAM OFF結果を保存",color=Bg,fontWeight=FontWeight.Black)};TextButton(clear,Modifier.fillMaxWidth()){Text("OFF結果を消去")};Text("注: zRAM ON/OFFはファームウェア側で切替。本アプリは内部zRAM情報を読まず、同一負荷の結果差を表示します。",color=Muted,fontSize=10.sp)}}}
+@Composable fun Gauge(t:String,p:Float,l:String,c:Color,mod:Modifier){Card(mod.fillMaxSize(),colors=CardDefaults.cardColors(containerColor=Card)){Column(Modifier.padding(12.dp),horizontalAlignment=Alignment.CenterHorizontally){Text(t,color=Muted);Box(Modifier.size(100.dp),contentAlignment=Alignment.Center){Canvas(Modifier.fillMaxSize()){drawArc(Color(0xFF29435F),135f,270f,false,style=Stroke(11.dp.toPx()));drawArc(c,135f,270f*p.coerceIn(0f,1f),false,style=Stroke(11.dp.toPx()))};Text(l,fontSize=22.sp,fontWeight=FontWeight.Black)}}}}
+@Composable fun Metric(t:String,v:Long,u:String,c:Color,mod:Modifier){Card(mod.fillMaxSize(),colors=CardDefaults.cardColors(containerColor=Card)){Column(Modifier.padding(14.dp)){Text(t,color=Muted);Text("$v",fontSize=34.sp,fontWeight=FontWeight.Black);Text(u,color=c,fontWeight=FontWeight.Bold)}}}
+@Composable fun Badge(t:String,c:Color){Surface(color=c.copy(.15f),shape=RoundedCornerShape(30.dp)){Text(t,color=c,fontWeight=FontWeight.Black,modifier=Modifier.padding(horizontal=16.dp,vertical=8.dp))}}

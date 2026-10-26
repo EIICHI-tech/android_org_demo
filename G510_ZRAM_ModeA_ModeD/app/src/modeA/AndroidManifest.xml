@@ -1,0 +1,1 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"><application><provider android:name=".BaselineProvider" android:authorities="jp.g510.zramcompare.modea.baseline" android:exported="true" android:readPermission="jp.g510.zramcompare.BASELINE"/></application></manifest>
