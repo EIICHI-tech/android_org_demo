@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<style>html,body,#player{margin:0;width:100%;height:100%;background:#000;overflow:hidden}</style></head><body><div id="player"></div>
+<script>
+let player, timer;
+function onYouTubeIframeAPIReady(){
+ player=new YT.Player('player',{width:'100%',height:'100%',playerVars:{playsinline:1,controls:1,rel:0},events:{
+  onReady:()=>Android.onReady(),
+  onStateChange:e=>{Android.onState(e.data); if(e.data===1) startTicks(); else stopTicks();}
+ }});
+}
+function startTicks(){stopTicks();timer=setInterval(()=>{try{Android.onTime(player.getCurrentTime(),player.getPlayerState())}catch(e){}},500)}
+function stopTicks(){if(timer){clearInterval(timer);timer=null}}
+function loadVideo(id){player.loadVideoById(id)}
+function playVideo(){player.playVideo()} function pauseVideo(){player.pauseVideo()}
+function seekTo(s){player.seekTo(s,true)} function mutePlayer(){player.mute()} function unmutePlayer(){player.unMute()}
+let tag=document.createElement('script');tag.src='https://www.youtube.com/iframe_api';document.head.appendChild(tag);
+</script></body></html>

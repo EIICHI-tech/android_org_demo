@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal" android:background="#ECEFF1" android:padding="10dp">
+ <FrameLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.55" android:background="@drawable/door_bg" android:layout_marginEnd="8dp">
+  <View android:layout_width="2dp" android:layout_height="match_parent" android:layout_gravity="center" android:background="#90A4AE"/>
+  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|center_horizontal" android:layout_marginBottom="18dp" android:text="VOICE ELEVATOR DEMO" android:textColor="#78909C" android:textSize="11sp"/>
+ </FrameLayout>
+ <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:background="@drawable/panel_bg" android:padding="8dp">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="120dp" android:orientation="vertical" android:gravity="center" android:background="@drawable/lcd_bg" android:padding="6dp">
+   <TextView android:id="@+id/currentFloorText" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:text="1" android:textColor="#42A5F5" android:textSize="51sp" android:textStyle="bold" android:gravity="center"/>
+   <TextView android:id="@+id/statusText" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Hi エレベーター" android:textColor="#B3E5FC" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
+   <TextView android:id="@+id/heardText" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="待機中" android:textColor="#80CBC4" android:textSize="9sp" android:gravity="center" android:maxLines="1"/>
+  </LinearLayout>
+  <GridLayout android:id="@+id/floorGrid" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:columnCount="3" android:rowCount="5" android:alignmentMode="alignMargins" android:paddingTop="8dp"/>
+  <LinearLayout android:layout_width="match_parent" android:layout_height="58dp" android:orientation="horizontal" android:gravity="center">
+   <Button android:id="@+id/openButton" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:layout_margin="2dp" android:background="@drawable/control_button" android:text="◀│▶" android:textSize="12sp" android:textColor="#263238"/>
+   <Button android:id="@+id/closeButton" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:layout_margin="2dp" android:background="@drawable/control_button" android:text="▶│◀" android:textSize="12sp" android:textColor="#263238"/>
+   <Button android:id="@+id/alarmButton" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:layout_margin="2dp" android:background="@drawable/control_button" android:text="呼出" android:textSize="11sp" android:textColor="#263238"/>
+  </LinearLayout>
+ </LinearLayout>
+</LinearLayout>

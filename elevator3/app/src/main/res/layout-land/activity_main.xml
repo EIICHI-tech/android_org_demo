@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal" android:background="#ECEFF1" android:padding="14dp">
+
+    <FrameLayout android:layout_width="0dp" android:layout_height="match_parent"
+        android:layout_weight="2.8" android:layout_marginEnd="18dp" android:background="@drawable/door_bg">
+        <View android:layout_width="3dp" android:layout_height="match_parent"
+            android:layout_gravity="center" android:background="#90A4AE"/>
+        <View android:layout_width="match_parent" android:layout_height="8dp"
+            android:layout_gravity="top" android:background="#B0BEC5"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal" android:layout_marginBottom="20dp"
+            android:text="VOICE ELEVATOR DEMO" android:textColor="#78909C" android:textSize="12sp"/>
+    </FrameLayout>
+
+    <LinearLayout android:layout_width="300dp" android:layout_height="match_parent"
+        android:orientation="vertical" android:gravity="center_horizontal"
+        android:background="@drawable/panel_bg" android:padding="12dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="112dp"
+            android:orientation="vertical" android:gravity="center" android:background="@drawable/lcd_bg" android:padding="6dp">
+            <TextView android:id="@+id/currentFloorText" android:layout_width="match_parent"
+                android:layout_height="0dp" android:layout_weight="1" android:text="1"
+                android:textColor="#42A5F5" android:textSize="48sp" android:textStyle="bold" android:gravity="center"/>
+            <TextView android:id="@+id/statusText" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Hi エレベーター"
+                android:textColor="#B3E5FC" android:textSize="12sp" android:gravity="center" android:maxLines="2"/>
+            <TextView android:id="@+id/heardText" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="待機中"
+                android:textColor="#80CBC4" android:textSize="9sp" android:gravity="center" android:maxLines="1"/>
+        </LinearLayout>
+
+        <GridLayout android:id="@+id/floorGrid" android:layout_width="240dp"
+            android:layout_height="0dp" android:layout_weight="1" android:columnCount="3"
+            android:rowCount="5" android:alignmentMode="alignMargins" android:gravity="center"
+            android:paddingTop="8dp" android:paddingBottom="6dp"/>
+
+        <LinearLayout android:layout_width="240dp" android:layout_height="52dp"
+            android:orientation="horizontal" android:gravity="center">
+            <Button android:id="@+id/openButton" android:layout_width="48dp" android:layout_height="48dp"
+                android:layout_marginHorizontal="6dp" android:background="@drawable/control_button"
+                android:text="◀│▶" android:textSize="9sp" android:textColor="#263238" android:padding="0dp"/>
+            <Button android:id="@+id/closeButton" android:layout_width="48dp" android:layout_height="48dp"
+                android:layout_marginHorizontal="6dp" android:background="@drawable/control_button"
+                android:text="▶│◀" android:textSize="9sp" android:textColor="#263238" android:padding="0dp"/>
+            <Button android:id="@+id/alarmButton" android:layout_width="48dp" android:layout_height="48dp"
+                android:layout_marginHorizontal="6dp" android:background="@drawable/control_button"
+                android:text="呼出" android:textSize="9sp" android:textColor="#263238" android:padding="0dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

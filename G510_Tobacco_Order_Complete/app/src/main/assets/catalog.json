@@ -1,0 +1,14 @@
+[
+  {"number":"001","name":"ラッキーストライク","keywords":["ラッキーストライク","ラッキー","lucky strike"],"drawable":"pack_001"},
+  {"number":"002","name":"キャメル","keywords":["キャメル","camel"],"drawable":"pack_002"},
+  {"number":"003","name":"ネオ","keywords":["ネオ","neo","グロー ネオ"],"drawable":"pack_003"},
+  {"number":"004","name":"クール","keywords":["クール","kool","クール エックス ネオ"],"drawable":"pack_004"},
+  {"number":"005","name":"ミックス","keywords":["ミックス","miix"],"drawable":"pack_005"},
+  {"number":"006","name":"センティア","keywords":["センティア","sentia"],"drawable":"pack_006"},
+  {"number":"007","name":"ヒーツ","keywords":["ヒーツ","heets"],"drawable":"pack_007"},
+  {"number":"008","name":"ケント","keywords":["ケント","kent"],"drawable":"pack_008"},
+  {"number":"009","name":"メビウス プルームエックス","keywords":["メビウス プルームエックス","メビウス","プルームエックス","mevius ploom x"],"drawable":"pack_009"},
+  {"number":"010","name":"メビウス プルームテックプラス","keywords":["メビウス プルームテックプラス","プルームテックプラス","ploom tech plus"],"drawable":"pack_010"},
+  {"number":"011","name":"テリア","keywords":["テリア","terea"],"drawable":"pack_011"},
+  {"number":"012","name":"マールボロ IQOS","keywords":["マールボロ","アイコス マールボロ","marlboro iqos"],"drawable":"pack_012"}
+]

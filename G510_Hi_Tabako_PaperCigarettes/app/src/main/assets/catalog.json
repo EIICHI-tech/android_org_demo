@@ -1,0 +1,14 @@
+[
+  {"number":"001","name":"バージニア・エス","keywords":["バージニアエス","バージニア エス","virginia s","ソフィア"],"drawable":"pack_001"},
+  {"number":"002","name":"ホープ","keywords":["ホープ","hope","ホープ オリジナル"],"drawable":"pack_002"},
+  {"number":"003","name":"ナチュラル・アメリカン・スピリット","keywords":["アメリカンスピリット","アメスピ","ナチュラルアメリカンスピリット","american spirit"],"drawable":"pack_003"},
+  {"number":"004","name":"フィリップモリス","keywords":["フィリップモリス","フィリップ モリス","philip morris"],"drawable":"pack_004"},
+  {"number":"005","name":"キャメル","keywords":["キャメル","camel","キャメル 12"],"drawable":"pack_005"},
+  {"number":"006","name":"ラッキーストライク","keywords":["ラッキーストライク","ラッキー ストライク","ラッキー","lucky strike"],"drawable":"pack_006"},
+  {"number":"007","name":"ウィンストン","keywords":["ウィンストン","winston"],"drawable":"pack_007"},
+  {"number":"008","name":"ブラックジャック","keywords":["ブラックジャック","ブラック ジャック","black jack"],"drawable":"pack_008"},
+  {"number":"009","name":"ウエスト","keywords":["ウエスト","ウェスト","west","ウエスト ブルー"],"drawable":"pack_009"},
+  {"number":"010","name":"ラーク","keywords":["ラーク","lark","ラーク 12"],"drawable":"pack_010"},
+  {"number":"011","name":"クール","keywords":["クール","kool","クール キング"],"drawable":"pack_011"},
+  {"number":"012","name":"ケント","keywords":["ケント","kent","ケント 6"],"drawable":"pack_012"}
+]

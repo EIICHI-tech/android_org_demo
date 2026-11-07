@@ -1,0 +1,1 @@
+<resources><style name="Theme.EmergencyAlert" parent="Theme.Material3.DayNight.NoActionBar"><item name="android:fontFamily">sans</item><item name="colorPrimary">#B00020</item></style></resources>

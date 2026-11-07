@@ -1,0 +1,1 @@
+<resources><style name="Theme.HiElevator" parent="Theme.MaterialComponents.DayNight.NoActionBar"><item name="android:fontFamily">sans</item><item name="android:windowLightStatusBar">true</item><item name="android:statusBarColor">#ECEFF1</item><item name="android:navigationBarColor">#263238</item><item name="colorAccent">#29B6F6</item></style></resources>

@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.VocalSwitch" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:colorAccent">#00D4FF</item>
+    </style>
+</resources>

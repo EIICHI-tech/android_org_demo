@@ -1,0 +1,1 @@
+<resources><style name="Theme.VoiceCamAI" parent="Theme.MaterialComponents.DayNight.NoActionBar"><item name="android:statusBarColor">#000000</item><item name="android:navigationBarColor">#000000</item><item name="android:fontFamily">sans</item></style></resources>
