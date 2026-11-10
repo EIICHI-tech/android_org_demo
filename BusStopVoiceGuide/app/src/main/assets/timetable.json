@@ -1,0 +1,11 @@
+[
+  {"destination":"高槻駅","aliases":["高槻","高槻駅前","JR高槻駅","高槻駅"],"platform":3,"departureTime":"15:05","busName":"高槻駅北口行き","durationMinutes":18,"fareYen":230},
+  {"destination":"高槻駅","aliases":["高槻","高槻駅前","JR高槻駅","高槻駅"],"platform":3,"departureTime":"15:25","busName":"高槻駅北口行き","durationMinutes":18,"fareYen":230},
+  {"destination":"市役所","aliases":["高槻市役所","役所","市役所"],"platform":1,"departureTime":"15:12","busName":"市役所・市民会館行き","durationMinutes":12,"fareYen":190},
+  {"destination":"市役所","aliases":["高槻市役所","役所","市役所"],"platform":1,"departureTime":"15:42","busName":"市役所・市民会館行き","durationMinutes":12,"fareYen":190},
+  {"destination":"病院","aliases":["総合病院","医療センター","病院"],"platform":2,"departureTime":"15:20","busName":"医療センター行き","durationMinutes":25,"fareYen":280},
+  {"destination":"病院","aliases":["総合病院","医療センター","病院"],"platform":2,"departureTime":"15:50","busName":"医療センター行き","durationMinutes":25,"fareYen":280},
+  {"destination":"大阪駅","aliases":["大阪","梅田","大阪駅"],"platform":5,"departureTime":"15:15","busName":"大阪駅前行き","durationMinutes":45,"fareYen":520},
+  {"destination":"京都駅","aliases":["京都","京都駅"],"platform":6,"departureTime":"15:30","busName":"京都駅八条口行き","durationMinutes":50,"fareYen":580},
+  {"destination":"空港","aliases":["大阪空港","伊丹空港","空港"],"platform":7,"departureTime":"15:40","busName":"大阪空港行き","durationMinutes":55,"fareYen":750}
+]

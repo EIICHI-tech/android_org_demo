@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="G510 Vocal OFF Prototype" android:textStyle="bold" android:textSize="24sp"/>
+<EditText android:id="@+id/url" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="権利を持つ音源のHTTPS直接URL" android:inputType="textUri"/>
+<Button android:id="@+id/download" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="URLからダウンロード"/>
+<TextView android:id="@+id/status" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="URLを入力するか曲を選択してください" android:padding="8dp"/>
+<ProgressBar android:id="@+id/progress" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="24dp" android:max="100"/>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+<Button android:id="@+id/select" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="曲を選択"/>
+<Button android:id="@+id/process" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ボーカル処理" android:enabled="false"/>
+<Button android:id="@+id/play" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="再生" android:enabled="false"/>
+<Button android:id="@+id/stop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="停止"/>
+</LinearLayout>
+<com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/vocalSwitch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="歌手 ON" android:checked="true"/>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="歌手OFF強度"/>
+<SeekBar android:id="@+id/strength" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="100" android:progress="90"/>
+</LinearLayout></ScrollView>

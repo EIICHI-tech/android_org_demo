@@ -38,8 +38,10 @@ class SpectrumView @JvmOverloads constructor(c: Context, a: AttributeSet? = null
             c.drawLine(cursorX,t,cursorX,b,Paint(1).apply{color=Color.YELLOW})
             val hz=((cursorX-l)/(r-l)*maxHz).roundToInt().coerceIn(0,maxHz)
             val idx=(hz.toDouble()/sampleRate*raw.size*2).roundToInt().coerceIn(raw.indices)
-            val s="${hz} Hz  RAW ${"%.1f".format(raw[idx])} dBFS" + if(nrEnabled) "  NR ${"%.1f".format(nr[idx])} dBFS" else ""}
-            c.drawText(s,l+10,b-15,text.apply{color=Color.YELLOW}); text.color=Color.LTGRAY
+            val nrPart = if(nrEnabled) "  NR ${"%.1f".format(nr[idx])} dBFS" else ""
+            val s = "${hz} Hz  RAW ${"%.1f".format(raw[idx])} dBFS$nrPart"
+            c.drawText(s, l + 10, b - 15, text.apply { color = Color.YELLOW })
+            text.color = Color.LTGRAY
         }
     }
     private fun drawSpectrum(c:Canvas,d:FloatArray,p:Paint,l:Float,r:Float,t:Float,b:Float,maxHz:Int){
